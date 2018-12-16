@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="authservice" />
+        <module name="configservice" />
+        <module name="eurekaserver" />
+        <module name="galleryservice" />
+        <module name="imageservice" />
+        <module name="zuulserver" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="authservice" target="1.8" />
+      <module name="configservice" target="1.8" />
+      <module name="eurekaserver" target="1.8" />
+      <module name="galleryservice" target="1.8" />
+      <module name="imageservice" target="1.8" />
+      <module name="zuulserver" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authservice" options="-parameters" />
+      <module name="configservice" options="-parameters" />
+      <module name="eurekaserver" options="-parameters" />
+      <module name="galleryservice" options="-parameters" />
+      <module name="imageservice" options="-parameters" />
+      <module name="zuulserver" options="-parameters" />
+    </option>
+  </component>
+</project>
