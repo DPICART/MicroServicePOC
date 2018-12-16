@@ -18,4 +18,8 @@ public class Gallery {
     public Gallery() {
         super();
     }
+
+    public Gallery(String id) {
+        this.id = id;
+    }
 }

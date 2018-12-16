@@ -1,5 +1,6 @@
 package fr.pisur4.galleryservice.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import fr.pisur4.galleryservice.model.Gallery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -31,6 +32,9 @@ public class HomeController {
         return "GalleryService from port: "+environment.getProperty("local.server.port")+" restricted to admin.";
     }
 
+    // Cette méthode est appelée lorsqu'une exception est remontée.
+    // ex: Exception levée lors du chargement des images
+    @HystrixCommand(fallbackMethod = "fallback")
     @RequestMapping( value = "/{id}")
     public Gallery getGallery(@PathVariable final String id)
     {
@@ -41,8 +45,12 @@ public class HomeController {
         // on peut utiliser "service-image" (définit dans application.properties) au lieu de "localhost:port"
         List<Object> images = restTemplate.getForObject("http://service-image/images/", List.class);
         gallery.setImages(images);
-
         return gallery;
+    }
+
+
+    public Gallery fallback(String galleryId, Throwable hystrixCommand) {
+        return new Gallery(galleryId);
     }
 
 }

@@ -26,17 +26,23 @@ public class HomeController {
     );
 
     @RequestMapping(value = "/images")
-    public List<Image> getImages()
-    {
+    public List<Image> getImages() throws Exception {
+//        throw new Exception("Images can't be fetched");
         return images;
     }
 
     @RequestMapping(value = "/image/{id}")
-    public Optional<Image> getImage(final @PathVariable("id") String id)
-    {
-        return images.stream().filter(im -> {
+    public Image getImage(final @PathVariable("id") String id) throws Exception {
+        Image image = images.stream().filter(im -> {
             return im.getId().equalsIgnoreCase(id);
-        }).findFirst();
+        }).findFirst().get();
+
+        if(null == image)
+        {
+            throw new Exception("Image can't be fetched");
+        }
+        return image;
+
     }
 
 }
