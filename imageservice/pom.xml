@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>fr.pisur4</groupId>
-    <artifactId>serviceimage</artifactId>
+    <artifactId>imageservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>serviceimage</name>
+    <name>imageservice</name>
     <description>MicroService 1 - Service gérant des images</description>
 
     <properties>
@@ -41,6 +41,10 @@
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
         <dependency>
