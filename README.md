@@ -19,7 +19,7 @@ Auth via token JWT
 
 ## Next steps
 
-* Ajout React
+* Ajout Tailor https://github.com/zalando/tailor
 
 * webcomposants
 
