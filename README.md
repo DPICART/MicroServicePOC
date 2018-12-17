@@ -19,6 +19,8 @@ Auth via token JWT
 
 ## Next steps
 
+* Ajout React
+
 * webcomposants
 
 * Micro-Frontends
